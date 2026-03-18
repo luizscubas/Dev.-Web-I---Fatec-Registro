@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela formatada</title>
+
+    <!-- CSS internal -->
+     
+     <style>
+
+        /* no CSS interno precisamos de seletores para aplicar as formatações */
+        
+        body { background-color: azure;
+            font-family: 'Verdana';
+            
+            }
+
+        td, th { 
+            /* padding é o espaçamento */
+            padding: 6px;
+
+            /* line-height é o espaçamento entre as linhas */
+            line-height: 1.6;
+             }
+
+        /* zebrando a tabela atravpes das linhas pares e ímpares */
+        /* even é par e odd é ímpar */
+        
+        tr:nth-child(even){
+            background-color: teal;
+        }
+        tr:nth-child(odd){
+            background-color: antiquewhite;
+        }
+     </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Tabela Zebrada</h1>
+        </header>
+        <table>
+            <caption>Tabela de clientes</caption>
+            <thead style="background-color: aquamarine;">
+                <tr>
+                    <th colspan="3">Dados pessoais:</th>
+                    <th colspan="2">Endereço:</th>
+                    <th colspan="1">Contato:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Nome:</th>
+                    <th>Idade:</th>
+                    <th>Profissão:</th>
+                    <th>Rua:</th>
+                    <th>Cidade:</th>
+                    <th>Email:</th>
+                </tr>
+                <tr>
+                    <td>Carlos Birinto</td>
+                    <td>27 anos</td>
+                    <td>Desempregado</td>
+                    <td>Avenida Brasil</td>
+                    <td>Paraná</td>
+                    <td>labsrinto@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Davi Jones</td>
+                    <td>30 anos</td>
+                    <td>Gamer</td>
+                    <td>Avenida Paulista</td>
+                    <td>São Paulo</td>
+                    <td>davijones@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Washington Luís</td>
+                    <td>70 anos</td>
+                    <td>Presidente</td>
+                    <td>Avenida Washington luís</td>
+                    <td>Rio de Janeiro</td>
+                    <td>wsgt@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>    
+</body>
+</html>

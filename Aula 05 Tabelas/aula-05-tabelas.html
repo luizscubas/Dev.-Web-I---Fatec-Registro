@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+</head>
+<body>
+    <header>
+        <h1>tabela do br</h1>
+    </header>
+
+    <main>
+        <h3>Estrutura mínima</h3>
+        <table border="1">
+            <!-- linha 1 -->
+            <tr>
+                <td>Dado 1</td>
+                <td>Dado 2</td>
+                <td>Dado 3</td>
+                <td>Dado 4</td>
+            </tr>
+            <!-- linha 2  -->
+
+            <tr>dado 5</tr>
+            <tr>dado 6</tr>
+            <tr>dado 7</tr>
+            <tr>dado 8</tr>
+        </table>
+
+        <h3>Tabela com cabeçalho:</h3>
+        <table border="1">
+            <!-- linha 1 -->
+             <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+             </tr>
+
+             <tr>
+                <td>Iphone</td>
+                <td>4500</td>
+             </tr>
+        </table>
+
+        <h3>Tabela com título</h3>
+        <table border="1">
+            <caption> Tabela de preços</caption>
+            <tr>
+
+                <th>Serviço</th>
+                <th>Valor</th>
+            </tr>
+            <tr>
+                <td>Pintura residencial</td>
+                <td>R$ 3600,00</td>
+            </tr>    
+        </table>
+
+        <h3>Tabela com Estrutura semântica:</h3>
+        <table border="1">
+            <caption> Valor do mês</caption>
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mouse</td>
+                    <td>17</td>
+                    <td> R$32,00</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <!-- Aqui para não ficar um espaço vazio, usamos colspan para mesclar -->
+                    <td colspan="2">Total</td>
+                    <td>577</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <h3>Mesclando linhas:</h3>
+        <table>
+            <caption> Valor do mês</caption>
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">Mouse</td>
+                    <td>17</td>
+                    <td> R$32,00</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>R$25,00</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <!-- Aqui para não ficar um espaço vazio, usamos colspan para mesclar -->
+                    <td colspan="2">Total</td>
+                    <td>1077</td>
+                </tr>
+            </tfoot>
+        </table>
+        <h3>Tabela com scope</h3>
+        <table border="1">
+            <caption>Notas dos alunos por disciplinas</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Aluno</th>
+                    <th scope="col">Desenvolvimento Web</th>
+                    <th scope="col">Design Digital</th>
+                    <th scope="col">Banco de dados</th>
+                    <th scope="col">Algoritmos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="col" >Luiz</th>
+                    <td>9.0</td>
+                    <td>10.0</td>
+                    <td>7.5</td>
+                    <td>8.0</td>
+                </tr>
+                <tr>
+                    <th scope="col">Matheus</th>
+                    <td>8.0</td>
+                    <td>7.0</td>
+                    <td>8.5</td>
+                    <td>8.25</td>
+                </tr>
+                <tr>
+                    <th scope="col">Victor</th>
+                    <td>7..25</td>
+                    <td>6.75</td>
+                    <td>9.5</td>
+                    <td>9.25</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </main>
+</body>
+</html>
