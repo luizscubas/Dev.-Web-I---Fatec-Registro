@@ -4,58 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grade de horários DSM 1</title>
+    <style>
+
+        /* no CSS interno precisamos de seletores para aplicar as formatações */
+        
+        body { 
+            font-family: 'Verdana';
+              }
+
+        td, th { 
+            /* padding é o espaçamento */
+            padding: 6px;
+
+            /* line-height é o espaçamento entre as linhas */
+            line-height: 1.6;
+             }
+
+        /* zebrando a tabela atravpes das linhas pares e ímpares */
+        /* even é par e odd é ímpar */
+        
+     </style>
 </head>
 <body>
     <h1>Horários de Aulas - DSM 1</h1>
     <p>Olá! Está página serve para conseguirmos visualizar os horários das aulas do DSM 1 em uma tabela.</p>
 
 
-    <table>
-        <caption>Horário semanal das disciplinas da turma do DSM-1</caption>
+    <table border="1">
+        <caption>Horário semanal das disciplinas da turma do DSM-1</caption> <br><br>
+
         <thead>
             <tr>
-                <th scope="col">
-                    <td>Horário</td>
-                    <td>Segunda</td>
-                    <td>Terça</td>
-                    <td>Quarta</td>
-                    <td>Quinta</td>    
-
-                </th>
+                    <th scope="col">Horário</th> <br><br>
+                    <th scope="col">Segunda</th> <br><br>
+                    <th scope="col">Terça</th> <br><br>
+                    <th scope="col">Quarta</th> <br><br>
+                    <th scope="col">Quinta</th> <br><br>   
+                    <th scope="col">Sexta</th> <br><br>   
             </tr>
         </thead>
+       
         <tbody>
-            <tr>
-                <th scope="row">18:30 às 19:20
+
+                <th scope="row">18:30 às 19:20 <br>
                     <td>Desenvolvimento Web I</td>
                     <td>Sistemas Operacionais e Redes de computadores</td>
                     <td>Modelagem de Banco de Dados</td>
                     <td>Modelagem de Banco de Dados</td>
                     <td>Algoritmo e lógica de Programação</td>
                 </th>
-                <th scope="row">19:20 às 20:10</th>
+                <tr>
+                <th scope="row">19:20 às 20:10</th> <br>
                     <td>Engenharia de Software</td>
                     <td>Sistemas Operacionais e Redes de computadores</td>
                     <td>Modelagem de Banco de Dados</td>
                     <td>Design Digital</td>
-                    <td>Algoritmo e lógica de Programação</td>
-                <th scope="row">20:10 às 21:00</th>
+                    <td>Algoritmo e lógica de Programação</td> <br>
+                </tr>
+                    <th scope="row">20:10 às 21:00</th> <br>
                     <td>Engenharia de Software</td>
                     <td>Desenvolvimento de Dados</td>
                     <td>Modelagem de Banco de Dados</td>
                     <td>Design Digital</td>
                     <td>Hora Técnica</td>
-                <th scope="row">21h00 às 21h20</th>
-                    <td colspan="5">Intervalo</td>
-                <th scope="row">21h20 às 22h10</th> 
+                <tr>
+                    <th scope="row">21h00 às 21h20</th><br>
+
+                    <td colspan="5" style="text-align: center;"; style="font-size: larger;">Intervalo</td>
+                 </tr>   
+                 <tr>
+                    <th scope="row">21h20 às 22h10</th> 
                     <td>Desenvolvimento Web I</td>
                     <td>Sistemas Operacionais e Redes de computadores</td>
                     <td>Modelagem de Banco de Dados</td>
                     <td>Modelagem de Banco de Dados</td>
                     <td>Algoritmo e lógica de Programação</td>
-                <th scope="row">22h10 às 23h00</th>
-            </tr>
+                </tr>       
+                <tr>      
+                    <th scope="row">22h10 às 23h00</th>
+                    <td>Engenharia de Software</td>
+                    <td>Desenvolvimento Web I</td>
+                    <td>Sistemas Operacionais e Redes de computadores</td>
+                    <td>Design Digital</td>
+                    <td>Algoritmo e lógica de Programação</td>
+                </tr>
         </tbody>
+
     </table>
 </body>
 </html>
