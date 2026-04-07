@@ -1,0 +1,39 @@
+body {
+    font-family: Verdana;
+    background-color:#4a4b4b;
+    color: blanchedalmond;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    color: aliceblue;
+    font-size: 32px;
+    margin-bottom: 30px;
+    border-bottom: 3px solid aliceblue;
+}
+
+h2 {
+    color: aliceblue;
+    font-size: 24px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.caixa {
+    width: 530px;
+    background-color: #4a4b4b;
+    padding: 30px;
+    text-align: center;
+    border: 2px solid aliceblue;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.caixa:hover {
+    background-color: aliceblue;
+    color: #4a4b4b;
+    transform: scale(0.9);
+    box-shadow: 0 8px 16px rgba(140, 201, 228, 0.5);
+}

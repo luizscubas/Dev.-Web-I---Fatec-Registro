@@ -1,0 +1,49 @@
+/*Comentário no CSS*/
+
+/* Seletor de elementos */
+/* p -> é o seletor */
+/* font-size -> propriedade */
+
+body {
+    background-color: rgb(255, 255, 243);
+    color: rgb(46, 44, 44);
+    font-family: Verdana;
+    padding: 20px;
+}
+p {
+    font-size: 16px;
+    line-height: 1.6;
+
+    /* margem inferior */
+    margin-bottom: 15px;
+    color: rgb(32, 26, 26);
+
+    /* espaço interno do elemento */
+    padding: 10px;
+}
+
+section p {
+    color: sienna;
+}
+
+.destaque {
+    background-color: cornflowerblue;
+    color: rgb(165, 248, 190);
+
+    /* border 5 px (espessura) solid (tipo da borda
+    e a cor */
+    border-left: 5px solid darkcyan;
+}
+
+/* Seletor de ID */
+#unico {
+    background-color: bisque;
+    color: yellowgreen;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    height: 80px;
+
+    /* height é a altura */
+    /* width é a largura */
+}
