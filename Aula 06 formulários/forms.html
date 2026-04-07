@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários no HTML</title>
+</head>
+<body>
+    <header>
+        <h1>formulário de cadastro</h1>
+    </header>
+    <main>
+        <section>
+
+            <!-- aqui a gente vai colocar o formulário -->
+             <form action="sucesso.html" method="post">
+                
+                <!-- aqui ficam as divisões do formulário -->
+                <fieldset>
+                    <legend>Dados pessoais</legend>
+                    <label for="nome">Nome:</label><br>
+                    <input type="text" name="nome" id="nome"
+                    placeholder="Insira o seu nome completo" required> <br>
+                    <label for="email">E-mail:</label><br>
+                    <input type="email" name="email" id="email"
+                    placeholder="Insira seu e-mail" required>
+                    <br>
+                <label for="password">Senha:</label><br>
+                <input type="password" name="password" id="password" placeholder="Insira sua Senha:"
+                required> <br>
+                <label for="nascimento">Data de nascimento:</label> <br>
+                <input type="date" name="nascimento" id="nascimento"><br>
+                <label for="sexo">Sexo:</label><br>
+                <input type="radio" name="sexo" id="masc" value="m">Masculino
+                <input type="radio" name="sexo" id="fem" value="f">Feminino
+            </fieldset>
+
+            <fieldset>
+                <legend>Dados do Produto:</legend>
+                <label for="quantidade"> Quantidade:</label><br>
+                <input type="number" name="quantidade" id="quantidade"
+                min="1" max="10"><br>
+                <label for="cor">Cor:</label><br>
+                <input type="color"><br>
+                <label for="entrega">Agendar entrega para data:</label><br>
+                <input type="datetime-localame="><br>
+                <label for="frete">Selecione o frete:</label><br>
+                <select name="frete" id="frete"> 
+                    <option value="pac">PAC</option>
+                    <option value="sedex">Sedex</option>
+                    <option value="sedex">Sedex 10</option>
+                </select> <br><br>
+                <label for="observacoes">Observações:</label><br>
+                <textarea name="observacoes" id="observacoes" cols="40" 
+                rows="4" placeholder="Escreva aqui observações sobre o produto">
+                </textarea> <br><br>
+                <input type="checkbox" name="termos" id="termos">
+                li e aceito os termos de uso da plataforma
+
+                <a href="termos.html">
+                <br><br>
+                <button type="button">Ler os termos de uso</button>
+                </a>
+                <br><br> <hr> <br>
+                <button type="submit">Enviar</button>
+                <button type="reset">Limpar</button>
+            </fieldset>
+             </form>
+        </section>
+    </main>
+</body>
+</html>
