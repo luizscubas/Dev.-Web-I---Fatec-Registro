@@ -17,13 +17,25 @@ body {
     width: 200px;
     height: 200px;
     background-color: #3498db;
+
+    /* margin define o espaço entre os elementos */
     margin: 10px;
     align-items: center;
     justify-content: center;
     text-align: center;
+
+    /* padding define o espaço interno do elemento */
+    padding: 10px;
+
+    /* border define a espessura, estilo e cor da borda do elemento */
+    border: 10px solid #3498db;
+
+    /* border-radius define o raio da borda do elemento */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(145, 228, 248, 0.664);
     transition: all 0.3s ease;
+    
+    /* A largura final do box será: width + padding + border */
 }
 
 .box:hover {
