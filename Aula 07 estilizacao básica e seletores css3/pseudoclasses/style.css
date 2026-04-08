@@ -37,3 +37,43 @@ h2 {
     transform: scale(0.9);
     box-shadow: 0 8px 16px rgba(140, 201, 228, 0.5);
 }
+
+.btn-download {
+    background-color: #4caf50;
+    color: aliceblue;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: green;
+    transform: scale(0.9);
+}
+
+.btn-download:active {
+    background-color: red;
+    transform: scale(0.9);
+}
+
+/* focus */
+
+input {
+    /* coloque a largura máxima do elemento */
+    max-width: 400px;
+    padding: 12px;
+    border: 2px solid #3a3a38;
+    border-radius: 5px;
+    background-color: #4a4b4b;
+    color: aliceblue;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: #66afe9;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: none;
+}

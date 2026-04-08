@@ -1,0 +1,70 @@
+body {
+    font-family: Verdana;
+    background-color: #30302e;
+    color: aliceblue;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #3a3a38;
+    border-radius: 5px;
+}
+
+.antes::before {
+    content: "➤";
+    color: aquamarine;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    text-shadow: 0 0 10px aquamarine;
+}
+
+/* after */
+.depois::after {
+    content: "✓";
+    color: aquamarine;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    text-shadow: 0 0 10px aquamarine;
+}
+
+/* citação estilizada com before e after */
+
+.citacao {
+    border-left: 5px solid aquamarine;
+    background-color: #3a3a38;
+    font-size: 20px;
+    font-style: italic;
+    color: aquamarine;
+    padding: 30px 40px;
+    margin: 20px 0;
+    max-width: 450px;
+    position: relative;
+}
+
+.citacao::before {
+    content: '"';
+    font-size: 80px;
+    color: aquamarine;
+    margin-right: 10px;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    opacity: 0.3;
+}
+
+.citacao::after {
+    content: '"';
+    bottom: -50px;
+    right: 45px;
+    font-size: 80px;
+    color: aquamarine;
+    margin-right: 10px;
+    opacity: 0.3;
+    position: absolute;
+}

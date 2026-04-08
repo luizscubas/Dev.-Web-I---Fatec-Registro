@@ -1,0 +1,32 @@
+body {
+    font-family: Verdana;
+    margin: 0;
+    padding: 0;
+    background-color: #30303e;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: #3498db;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(145, 228, 248, 0.664);
+    transition: all 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(145, 228, 248, 0.664);
+}
