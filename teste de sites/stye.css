@@ -1,0 +1,17 @@
+body {
+    background-color: #3498db;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: #3498db;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 10px solid #3498db;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(145, 228, 248, 0.664);
+    transition: all 0.3s ease;
+}
