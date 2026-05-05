@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Pergunta Importante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0d0d1a;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* ═══ Fundo estrelado + partículas ═══ */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(120, 40, 100, 0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(80, 40, 140, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(180, 60, 100, 0.15) 0%, transparent 50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Estrelinhas brilhando */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* ═══ Corações flutuantes no fundo ═══ */
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart-float {
+            position: absolute;
+            animation: floatUp 8s ease-in infinite;
+            filter: drop-shadow(0 0 6px rgba(255, 100, 150, 0.4));
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Corações CSS puro (extras decorativos) */
+        .css-heart {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .css-heart::before,
+        .css-heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 32px;
+            border-radius: 20px 20px 0 0;
+            background: rgba(255, 100, 150, 0.12);
+        }
+
+        .css-heart::before {
+            left: 20px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .css-heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        /* ═══ Message Box (tema escuro meigo) ═══ */
+        .message-box {
+            position: relative;
+            z-index: 10;
+            background: linear-gradient(145deg, rgba(30, 20, 40, 0.92), rgba(20, 15, 35, 0.95));
+            backdrop-filter: blur(25px);
+            border-radius: 28px;
+            padding: 55px 60px;
+            border: 1px solid rgba(255, 100, 180, 0.15);
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.5),
+                0 0 60px rgba(255, 80, 150, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05),
+                inset 0 0 30px rgba(255, 100, 180, 0.03);
+            text-align: center;
+            max-width: 480px;
+            width: 90%;
+            animation: popIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-origin: center center;
+        }
+
+        .message-box::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 20%;
+            right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 120, 180, 0.5), transparent);
+            border-radius: 2px;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.3) translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ═══ Ícone do topo ═══ */
+        .icon-wrapper {
+            width: 85px;
+            height: 85px;
+            background: linear-gradient(135deg, #ff6b9d, #c44dff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -95px auto 28px;
+            box-shadow:
+                0 10px 35px rgba(255, 107, 157, 0.35),
+                0 0 20px rgba(196, 77, 255, 0.2);
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow:
+                    0 10px 35px rgba(255, 107, 157, 0.35),
+                    0 0 20px rgba(196, 77, 255, 0.2);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow:
+                    0 15px 45px rgba(255, 107, 157, 0.5),
+                    0 0 35px rgba(196, 77, 255, 0.35);
+            }
+        }
+
+        .icon-wrapper span {
+            font-size: 2.4rem;
+            line-height: 1;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        /* ═══ Título da message box ═══ */
+        .box-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255, 150, 200, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 18px;
+        }
+
+        /* ═══ Mensagem principal ═══ */
+        .message {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #f0e6f6;
+            margin-bottom: 35px;
+            line-height: 1.4;
+            text-shadow: 0 2px 10px rgba(255, 100, 180, 0.15);
+        }
+
+        .message .highlight {
+            background: linear-gradient(135deg, #ff6b9d, #ff9de2, #c44dff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* ═══ Botões ═══ */
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 42px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-width: 140px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Botão Sim */
+        .btn-sim {
+            background: linear-gradient(135deg, #ff6b9d, #ff9de2);
+            color: #1a0a1e;
+            box-shadow:
+                0 8px 28px rgba(255, 107, 157, 0.35),
+                0 0 15px rgba(255, 157, 226, 0.15);
+        }
+
+        .btn-sim:hover {
+            transform: scale(1.12);
+            box-shadow:
+                0 12px 40px rgba(255, 107, 157, 0.5),
+                0 0 25px rgba(255, 157, 226, 0.3);
+        }
+
+        .btn-sim:active {
+            transform: scale(0.95);
+        }
+
+        /* Botão Não */
+        .btn-nao {
+            background: linear-gradient(135deg, #2a1f3d, #3d2b5a);
+            color: rgba(255, 180, 220, 0.7);
+            border: 1px solid rgba(255, 100, 180, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.15s ease;
+        }
+
+        .btn-nao:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ═══ Decoração de corações nos cantos ═══ */
+        .corner-heart {
+            position: fixed;
+            pointer-events: none;
+            z-index: 2;
+            opacity: 0.06;
+            font-size: 8rem;
+        }
+
+        .corner-heart.top-left {
+            top: -30px;
+            left: -20px;
+            transform: rotate(-15deg);
+        }
+
+        .corner-heart.bottom-right {
+            bottom: -30px;
+            right: -20px;
+            transform: rotate(15deg);
+        }
+
+        .corner-heart.top-right {
+            top: 40px;
+            right: 40px;
+            font-size: 4rem;
+            opacity: 0.04;
+            transform: rotate(20deg);
+        }
+
+        .corner-heart.bottom-left {
+            bottom: 40px;
+            left: 40px;
+            font-size: 3rem;
+            opacity: 0.05;
+            transform: rotate(-25deg);
+        }
+
+        /* ═══ Tela de sucesso (dark) ═══ */
+        .success-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 30%, #1a0a2e 100%);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .success-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 50% 50%, rgba(255, 100, 160, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .success-screen.show {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .success-text {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffd6eb;
+            text-align: center;
+            text-shadow: 0 0 30px rgba(255, 100, 180, 0.3);
+            animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .success-emoji {
+            font-size: 6rem;
+            margin-bottom: 20px;
+            animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s both;
+            filter: drop-shadow(0 0 20px rgba(255, 100, 180, 0.4));
+        }
+
+        .success-sub {
+            font-size: 1.3rem;
+            color: rgba(255, 180, 220, 0.7);
+            margin-top: 10px;
+            animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s both;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* ═══ Corações de sucesso ═══ */
+        .success-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 101;
+        }
+
+        /* ═══ Confetes ═══ */
+        .confetti {
+            position: fixed;
+            top: -10px;
+            z-index: 102;
+            animation: confettiFall 3.5s ease-in forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Confete em formato de coração */
+        .confetti-heart {
+            position: fixed;
+            top: -20px;
+            z-index: 102;
+            font-size: 1.2rem;
+            animation: confettiFall 4s ease-in forwards;
+            filter: drop-shadow(0 0 4px rgba(255, 100, 150, 0.5));
+        }
+
+        /* ═══ Brilhos flutuantes ═══ */
+        .sparkle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 180, 220, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 2;
+            animation: sparkleAnim 4s ease-in-out infinite;
+        }
+
+        @keyframes sparkleAnim {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+                box-shadow: 0 0 8px rgba(255, 150, 200, 0.8);
+            }
+        }
+
+        /* ═══ Responsividade ═══ */
+        @media (max-width: 500px) {
+            .message-box {
+                padding: 45px 28px;
+                border-radius: 22px;
+            }
+
+            .message {
+                font-size: 1.4rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .corner-heart {
+                font-size: 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Estrelinhas -->
+    <div class="stars" id="starsContainer"></div>
+
+    <!-- Corações nos cantos -->
+    <div class="corner-heart top-left">💗</div>
+    <div class="corner-heart bottom-right">💖</div>
+    <div class="corner-heart top-right">💕</div>
+    <div class="corner-heart bottom-left">💓</div>
+
+    <!-- Corações flutuantes -->
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <!-- Message Box -->
+    <div class="message-box" id="messageBox">
+        <div class="icon-wrapper">
+            <span>💖</span>
+        </div>
+        <p class="box-title">Pergunta Importante</p>
+        <h1 class="message">Você me <span class="highlight">ama</span>? 💕</h1>
+        <div class="buttons">
+            <button class="btn btn-sim" id="btnSim" onclick="simClicked()">
+                💖 Sim
+            </button>
+            <button class="btn btn-nao" id="btnNao" onmouseover="runAway()" onclick="runAway()">
+                💔 Não
+            </button>
+        </div>
+    </div>
+
+    <!-- Tela de Sucesso -->
+    <div class="success-screen" id="successScreen">
+        <div class="success-hearts" id="successHearts"></div>
+        <div class="success-emoji">😍💕</div>
+        <div class="success-text">Eu sabia!! 🥰</div>
+        <div class="success-sub">Eu também te amo! ❤️✨</div>
+    </div>
+
+    <script>
+        // ═══ Criar estrelinhas no fundo ═══
+        function createStars() {
+            const container = document.getElementById('starsContainer');
+            for (let i = 0; i < 60; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                star.style.width = (Math.random() * 3 + 1) + 'px';
+                star.style.height = star.style.width;
+                container.appendChild(star);
+            }
+        }
+
+        // ═══ Criar brilhos flutuantes ═══
+        function createSparkles() {
+            for (let i = 0; i < 15; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 4 + 's';
+                sparkle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                document.body.appendChild(sparkle);
+            }
+        }
+
+        // ═══ Criar corações flutuantes no fundo ═══
+        function createFloatingHearts() {
+            const container = document.getElementById('heartsBg');
+            const hearts = ['💕', '💖', '💗', '💓', '❤️', '💘', '💝', '🩷', '♥'];
+
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('span');
+                heart.classList.add('heart-float');
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 8 + 's';
+                heart.style.animationDuration = (Math.random() * 5 + 6) + 's';
+                heart.style.fontSize = (Math.random() * 1.5 + 0.6) + 'rem';
+                container.appendChild(heart);
+            }
+        }
+
+        // ═══ Criar corações CSS decorativos ═══
+        function createCSSHearts() {
+            for (let i = 0; i < 8; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('css-heart');
+                heart.style.left = Math.random() * 90 + 5 + '%';
+                heart.style.top = Math.random() * 90 + 5 + '%';
+                heart.style.transform = `scale(${Math.random() * 0.8 + 0.3}) rotate(${Math.random() * 30 - 15}deg)`;
+                heart.style.opacity = Math.random() * 0.06 + 0.02;
+                document.body.appendChild(heart);
+            }
+        }
+
+        createStars();
+        createSparkles();
+        createFloatingHearts();
+        createCSSHearts();
+
+        // ═══ Botão "Não" foge do mouse! ═══
+        function runAway() {
+            const btn = document.getElementById('btnNao');
+            const box = document.getElementById('messageBox');
+            const boxRect = box.getBoundingClientRect();
+
+            const maxX = boxRect.width - btn.offsetWidth - 40;
+            const maxY = boxRect.height - btn.offsetHeight - 20;
+
+            let newX = Math.random() * maxX - maxX / 2;
+            let newY = Math.random() * maxY - maxY / 2;
+
+            newX = Math.max(-100, Math.min(100, newX));
+            newY = Math.max(-80, Math.min(80, newY));
+
+            btn.style.position = 'relative';
+            btn.style.left = newX + 'px';
+            btn.style.top = newY + 'px';
+        }
+
+        // ═══ Clicou em "Sim"! ═══
+        function simClicked() {
+            const successScreen = document.getElementById('successScreen');
+            successScreen.classList.add('show');
+            createConfetti();
+            createSuccessHearts();
+        }
+
+        // ═══ Criar confetes ═══
+        function createConfetti() {
+            const colors = ['#ff6b9d', '#ff9de2', '#c44dff', '#ffd6eb', '#9b59b6', '#e056a0'];
+
+            for (let i = 0; i < 60; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = (Math.random() * 8 + 4) + 'px';
+                    confetti.style.height = (Math.random() * 8 + 4) + 'px';
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                    confetti.style.animationDuration = (Math.random() * 2 + 2.5) + 's';
+                    confetti.style.animationDelay = Math.random() * 0.3 + 's';
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), 5000);
+                }, i * 40);
+            }
+
+            // Corações como confete
+            const heartEmojis = ['💖', '💗', '💕', '💓', '🩷'];
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('confetti-heart');
+                    heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                    heart.style.animationDelay = Math.random() * 1 + 's';
+                    heart.style.fontSize = (Math.random() * 0.8 + 0.8) + 'rem';
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => heart.remove(), 6000);
+                }, i * 80);
+            }
+        }
+
+        // ═══ Corações na tela de sucesso ═══
+        function createSuccessHearts() {
+            const container = document.getElementById('successHearts');
+            const hearts = ['💕', '💖', '💗', '💓', '❤️'];
+
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('span');
+                heart.classList.add('heart-float');
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 3 + 's';
+                heart.style.animationDuration = (Math.random() * 4 + 5) + 's';
+                heart.style.fontSize = (Math.random() * 1.5 + 0.8) + 'rem';
+                container.appendChild(heart);
+            }
+        }
+    </script>
+</body>
+</html>
