@@ -1,11 +1,9 @@
-if (confirmacao == true) {
-  //janela para colocar a idade
-  const idade = window.prompt("Quantos anos você tem?")
+const idade = Number(window.prompt("DIgite aqui sua idade:"));
 
-  //escrevendo no site
-  document.writeln("Olá," + nome); // concatenação
-
-  // concatenação - Template Strings
-  // document.write("Você tem" + idade + "anos")
-  document.writeln(`Você tem ${idade}`)
+if (idade >= 18) {
+  console.log("você é maior de idade");
+  document.writeln("você é maior de idade");
+} else {
+  console.log("Você é menor de idade");
+  document.writeln("Você é menor de idade");
 }
