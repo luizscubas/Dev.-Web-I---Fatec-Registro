@@ -1,7 +1,10 @@
 body {
     background-color: rgb(26, 25, 25);
+    color: antiquewhite;
+    font: normal arial 12px;
 }
 
 h1 {
     color: gold;
+    font: 900 arial 16px;
 }
